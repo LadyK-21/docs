@@ -87,7 +87,7 @@ In parsing operations, custom date and time format strings can be used with the 
 | ":" | The time separator.<br /><br /> More information: [The ":" Custom Format Specifier](#timeSeparator). | 2009-06-15T13:45:30 -> : (en-US)<br /><br /> 2009-06-15T13:45:30 -> . (it-IT)<br /><br /> 2009-06-15T13:45:30 -> : (ja-JP) |
 | "/" | The date separator.<br /><br /> More Information: [The "/" Custom Format Specifier](#dateSeparator). | 2009-06-15T13:45:30 -> / (en-US)<br /><br /> 2009-06-15T13:45:30 -> - (ar-DZ)<br /><br /> 2009-06-15T13:45:30 -> . (tr-TR) |
 | "*string*"<br /><br /> '*string*' | Literal string delimiter.<br /><br /> More information: [Character literals](#Literals). | 2009-06-15T13:45:30 ("arr:" h:m t) -> arr: 1:45 P<br /><br /> 2009-06-15T13:45:30 ('arr:' h:m t) -> arr: 1:45 P |
-| % | Defines the following character as a custom format specifier.<br /><br /> More information:[Using Single Custom Format Specifiers](#UsingSingleSpecifiers). | 2009-06-15T13:45:30 (%h) -> 1 |
+| % | Defines the following character as a custom format specifier.<br /><br /> More information: [Using Single Custom Format Specifiers](#UsingSingleSpecifiers). | 2009-06-15T13:45:30 (%h) -> 1 |
 | &#92; | The escape character.<br /><br /> More information: [Character literals](#Literals) and [Using the Escape Character](#escape). | 2009-06-15T13:45:30 (h \h) -> 1 h |
 | Any other character | The character is copied to the result string unchanged.<br /><br /> More information: [Character literals](#Literals). | 2009-06-15T01:45:30 (arr hh:mm t) -> arr 01:45 A |
 
@@ -427,7 +427,7 @@ The following example includes the "MM" custom format specifier in a custom form
 
 ### <a name="MMM_Specifier"></a> The "MMM" custom format specifier
 
-The "MMM" custom format specifier represents the abbreviated name of the month. The localized abbreviated name of the month is retrieved from the <xref:System.Globalization.DateTimeFormatInfo.AbbreviatedMonthNames%2A?displayProperty=nameWithType> property of the current or specified culture.
+The "MMM" custom format specifier represents the abbreviated name of the month. The localized abbreviated name of the month is retrieved from the <xref:System.Globalization.DateTimeFormatInfo.AbbreviatedMonthNames%2A?displayProperty=nameWithType> property of the current or specified culture. If there is a "d" or "dd" custom format specifier in the custom format string, it is retrieved from the <xref:System.Globalization.DateTimeFormatInfo.AbbreviatedMonthGenitiveNames%2A?displayProperty=nameWithType> property instead.
 
 The following example includes the "MMM" custom format specifier in a custom format string.
 
@@ -438,7 +438,7 @@ The following example includes the "MMM" custom format specifier in a custom for
 
 ### <a name="MMMM_Specifier"></a> The "MMMM" custom format specifier
 
-The "MMMM" custom format specifier represents the full name of the month. The localized name of the month is retrieved from the <xref:System.Globalization.DateTimeFormatInfo.MonthNames%2A?displayProperty=nameWithType> property of the current or specified culture.
+The "MMMM" custom format specifier represents the full name of the month. The localized name of the month is retrieved from the <xref:System.Globalization.DateTimeFormatInfo.MonthNames%2A?displayProperty=nameWithType> property of the current or specified culture. If there is a "d" or "dd" custom format specifier in the custom format string, it is retrieved from the <xref:System.Globalization.DateTimeFormatInfo.MonthGenitiveNames%2A?displayProperty=nameWithType> property instead.
 
 The following example includes the "MMMM" custom format specifier in a custom format string.
 

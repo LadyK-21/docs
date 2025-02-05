@@ -1,5 +1,5 @@
 ---
-title: "How to search strings (C# Guide)"
+title: "How to search strings"
 description: Learn about two strategies to search for text in strings in C#. String class methods search for specific text. Regular expressions search for patterns in text.
 ms.date: 02/21/2018
 helpviewer_keywords: 
@@ -68,7 +68,6 @@ This single search pattern matches many valid strings. Regular expressions are b
 
 ## See also
 
-- [C# programming guide](../programming-guide/index.md)
 - [Strings](../programming-guide/strings/index.md)
 - <xref:System.Text.RegularExpressions.Regex?displayProperty=nameWithType>
 - [.NET regular expressions](../../standard/base-types/regular-expressions.md)

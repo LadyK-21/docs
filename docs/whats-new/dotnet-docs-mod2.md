@@ -1,108 +1,108 @@
 ---
-title: ".NET docs: What's new for August 2023"
-description: "What's new in the .NET docs for August 2023."
-ms.custom: August-2023
-ms.date: 09/01/2023
+title: ".NET docs: What's new for November 2024"
+description: "What's new in the .NET docs for November 2024."
+ms.custom: November-2024
+ms.date: 12/12/2024
 ---
 
-# .NET docs: What's new for August 2023
+# .NET docs: What's new for November 2024
 
-Welcome to what's new in the .NET docs for August 2023. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the .NET docs for November 2024. This article lists some of the major changes to docs during this period.
 
 ## .NET breaking changes
 
 ### New articles
 
-- [IDispatchImplAttribute API is removed](../core/compatibility/interop/8.0/idispatchimplattribute-removed.md)
-- [Method builders generate parameters with HasDefaultValue set to false](../core/compatibility/core-libraries/8.0/parameterinfo-hasdefaultvalue.md)
-- [ConfigurationManager package no longer references System.Security.Permissions](../core/compatibility/extensions/8.0/configurationmanager-package.md)
-- [DirectoryServices package no longer references System.Security.Permissions](../core/compatibility/extensions/8.0/directoryservices-package.md)
-- [Trimming may not be used with .NET standard or .NET framework](../core/compatibility/sdk/8.0/trimming-unsupported-targetframework.md)
-- ['dotnet restore' produces security vulnerability warnings](../core/compatibility/sdk/8.0/dotnet-restore-audit.md)
-- [.NET can't be installed to custom location](../core/compatibility/sdk/6.0/install-location.md)
-- [Boolean-backed enum type support removed](../core/compatibility/core-libraries/8.0/bool-backed-enum.md)
-- [Binding config to dictionary extends values](../core/compatibility/extensions/7.0/config-bind-dictionary.md)
-- ['ca-certificates' and 'krb5-libs' packages removed from Alpine images](../core/compatibility/containers/8.0/krb5-libs-package.md)
-- [Removed Boolean-based overloads of ToFrozenDictionary/ToFrozenSet](../core/compatibility/core-libraries/8.0/optimizeforreading-arg.md)
-- [Security token events return a JSonWebToken](../core/compatibility/aspnet-core/8.0/securitytoken-events.md)
-- [TrimMode defaults to full for Web SDK projects](../core/compatibility/aspnet-core/8.0/trimmode-full.md)
+- ['dotnet restore' audits transitive packages](../core/compatibility/sdk/9.0/nugetaudit-transitive-packages.md)
+- ['dotnet watch' incompatible with Hot Reload for old frameworks](../core/compatibility/sdk/9.0/dotnet-watch.md)
+- [Asterisk no longer accepted for assembly name attributes](../core/compatibility/core-libraries/7.0/assembly-name-wildcard.md)
+- [Breaking changes in Windows Presentation Foundation for .NET Core 3.0](../core/compatibility/wpf.md)
+- [Dev cert export no longer creates folder](../core/compatibility/aspnet-core/9.0/certificate-export.md)
+- [Drag-and-drop operations in text editors](../core/compatibility/wpf/7.0/drag-and-drop.md)
+- [HttpClient metrics report `server.port` unconditionally](../core/compatibility/networking/9.0/server-port-attribute.md)
+- [HttpClientFactory uses SocketsHttpHandler as primary handler](../core/compatibility/networking/9.0/default-handler.md)
+- [Middleware types with multiple constructors](../core/compatibility/aspnet-core/9.0/middleware-constructors.md)
+- [Removal of WCF APIs with a `configurationName` parameter](../core/compatibility/wcf-client/8.0/configurationname-apis.md)
+- [String.Trim*(params ReadOnlySpan\<char>) overloads removed](../core/compatibility/core-libraries/9.0/string-trim.md)
+- [URI query and fragment redaction in HttpClient EventSource events](../core/compatibility/networking/9.0/query-redaction-events.md)
+- [URI query and fragment redaction in IHttpClientFactory logs](../core/compatibility/networking/9.0/query-redaction-logs.md)
+- [Version requirements for .NET 9 SDK](../core/compatibility/sdk/9.0/version-requirements.md)
+- [Warning emitted when targeting net7.0](../core/compatibility/sdk/9.0/net70-warning.md)
 
-## .NET Framework
+## AI in .NET
 
-### Updated articles
+### New articles
 
-- [Security Protocols version 1.0](../framework/wcf/feature-details/security-protocols-version-1-0.md) - Fix build suggestions
-- [\<defaultProxy> element (network settings)](../framework/configure-apps/file-schema/network/defaultproxy-element-network-settings.md) - Add link to DefaultProxy property
+- [Unified AI building blocks for .NET using Microsoft.Extensions.AI](../ai/ai-extensions.md)
 
 ## .NET fundamentals
 
 ### New articles
 
-- [Logging guidance for .NET library authors](../core/extensions/logging-library-authors.md)
+- [Create and consume custom frameworks for iOS-like platforms](../core/deploying/native-aot/ios-like-platforms/creating-and-consuming-custom-frameworks.md)
+- [Make anonymous function static (IDE0320)](../fundamentals/code-analysis/style-rules/ide0320.md)
+- [MSTest v3 migration guide](../core/testing/unit-testing-mstest-migration-from-v1-to-v3.md)
+- [MSTEST0037: Use proper 'Assert' methods](../core/testing/mstest-analyzers/mstest0037.md)
+- [Native AOT support for iOS-like platforms](../core/deploying/native-aot/ios-like-platforms/index.md)
+- [Prefer 'System.Threading.Lock' (IDE0330)](../fundamentals/code-analysis/style-rules/ide0330.md)
+- [SYSLIB5003: SVE is a preview feature can be used by enabling EnablePreviewFeatures flag](../fundamentals/syslib-diagnostics/syslib5003.md)
 
 ### Updated articles
 
-- [Tutorial: Debug a .NET console application using Visual Studio](../core/tutorials/debugging-with-visual-studio.md) - Update Visual Studio tutorial series
-- [Tutorial: Create a .NET class library using Visual Studio](../core/tutorials/library-with-visual-studio.md) - Update Visual Studio tutorial series
-- [Tutorial: Publish a .NET console application using Visual Studio](../core/tutorials/publishing-with-visual-studio.md) - Update Visual Studio tutorial series
-- [Tutorial: Test a .NET class library with .NET using Visual Studio](../core/tutorials/testing-library-with-visual-studio.md) - Update Visual Studio tutorial series
-- [Tutorial: Create a .NET console application using Visual Studio](../core/tutorials/with-visual-studio.md) - Update Visual Studio tutorial series
-- [What's new in .NET 8](../core/whats-new/dotnet-8.md) - Update What's new in .NET 8 for Preview 7
-
-## .NET tools and diagnostics
-
-### New articles
-
-- [NETSDK1206: Found version-specific or distribution-specific runtime identifier(s)](../core/tools/sdk-errors/netsdk1206.md)
-- [CA1869: Cache and reuse 'JsonSerializerOptions' instances](../fundamentals/code-analysis/quality-rules/ca1869.md)
-- [Use 'nameof' (IDE0280)](../fundamentals/code-analysis/style-rules/ide0280.md)
-
-### Updated articles
-
-- [Creating Metrics](../core/diagnostics/metrics-instrumentation.md) - Update metrics for .NET 8 changes
-- [Rule categories](../fundamentals/code-analysis/categories.md) - Clarify MSBuild vs. editorconfig bulk config
-
-## Advanced .NET programming
-
-### New articles
-
-- [Unmanaged calling conventions](../standard/native-interop/calling-conventions.md)
+- [.NET default templates for dotnet new](../core/tools/dotnet-new-sdk-templates.md) - Update docs for test templates
+- [Install .NET SDK or .NET Runtime on Ubuntu](../core/install/linux-ubuntu-install.md) - Update OS release support info
 
 ## C# language
 
 ### New articles
 
-- [Resolve errors and warnings in array declarations and initialization expressions](../csharp/language-reference/compiler-messages/array-declaration-errors.md)
-- [Arrays](../csharp/language-reference/builtin-types/arrays.md)
-- [Collections](../csharp/language-reference/builtin-types/collections.md)
-- [Collection expressions - C# language reference](../csharp/language-reference/operators/collection-expressions.md)
+- [`field` - Field backed property declarations](../csharp/language-reference/keywords/field.md)
+- [Compiler Error CS8802](../csharp/language-reference/compiler-messages/cs8802.md)
 
-## DevOps and testing in .NET
+## F# language
 
 ### New articles
 
-- [Diagnostics in native AOT applications](../core/deploying/native-aot/diagnostics.md)
+- [What's new in F# 9](../fsharp/whats-new/fsharp-9.md)
 
-### Updated articles
+## Azure SDK for .NET
 
-- [Prepare .NET libraries for trimming](../core/deploying/trimming/prepare-libraries-for-trimming.md) - Update trimming doc
+### New articles
+
+- [Configure a proxy when using the Azure SDK for .NET](../azure/sdk/configure-proxy.md)
+- [Use the Azure SDK for .NET in ASP.NET Core apps](../azure/sdk/aspnetcore-guidance.md)
+
+## .NET Framework
+
+### New articles
+
+- [November 2024 security and quality rollup](../framework/release-notes/2024/11-12-november-security-and-quality-rollup.md)
 
 ## Community contributors
 
 The following people contributed to the .NET docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
 
-- [BartoszKlonowski](https://github.com/BartoszKlonowski) - Bartosz Klonowski ![5 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-5-green)
-- [ar1k](https://github.com/ar1k) - Aleksandr Ananin ![3 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-3-green)
-- [FrediKats](https://github.com/FrediKats) - Fredi Kats ![2 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-2-green)
-- [pkulikov](https://github.com/pkulikov) - Petr Kulikov ![2 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-2-green)
-- [angrypig555](https://github.com/angrypig555) -  ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
-- [Bafyn](https://github.com/Bafyn) - Dmytro Nikitin ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
-- [bitbonk](https://github.com/bitbonk) - bitbonk ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
-- [dandev486](https://github.com/dandev486) - dandev486 ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
-- [dimitriskad](https://github.com/dimitriskad) - Dimitris K. ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
-- [EugeneGritsina](https://github.com/EugeneGritsina) - Eugene Gritsina ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
-- [Happypig375](https://github.com/Happypig375) - Hadrian Tang ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
-- [mikaeldui](https://github.com/mikaeldui) - Mikael Dúi Bolinder ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
-- [SugarBarrel](https://github.com/SugarBarrel) - Abbysssal ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
-- [tanchekwei](https://github.com/tanchekwei) - Chek Wei Tan ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
-- [weierstrass1031](https://github.com/weierstrass1031) -  ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [shethaadit](https://github.com/shethaadit) - Adit Sheth ![6 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-6-green)
+- [BartoszKlonowski](https://github.com/BartoszKlonowski) - Bartosz Klonowski ![3 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-3-green)
+- [Lamparter](https://github.com/Lamparter) - Lamparter ![2 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-2-green)
+- [tag-dbot](https://github.com/tag-dbot) -  ![2 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-2-green)
+- [ajpinedam](https://github.com/ajpinedam) - Andres Pineda ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [alexravenna](https://github.com/alexravenna) - Alex Ravenna ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [ArieHein](https://github.com/ArieHein) - Arie Heinrich ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [AsmusAB](https://github.com/AsmusAB) - Asmus Bartram ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [bigboybamo](https://github.com/bigboybamo) - Olabamiji Oyetubo ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [bogdanbujdea](https://github.com/bogdanbujdea) - Bogdan Bujdea ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [bsivanov](https://github.com/bsivanov) - Borislav Ivanov ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [davepcallan](https://github.com/davepcallan) - Dave Callan ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [emincb](https://github.com/emincb) -  ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [eolasd](https://github.com/eolasd) - David Connaughton ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [goswinr](https://github.com/goswinr) - Goswin Rothenthal ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [jspohn2](https://github.com/jspohn2) -  ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [kevingosse](https://github.com/kevingosse) - Kevin Gosse ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [lindexi](https://github.com/lindexi) - lindexi ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [Pxtl](https://github.com/Pxtl) - Martin Zarate ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [pypkaed](https://github.com/pypkaed) -  ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [SeppPenner](https://github.com/SeppPenner) - SeppPenner ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [skycommand](https://github.com/skycommand) -  ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [snechaev](https://github.com/snechaev) - Sergey Nechaev ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)
+- [SpaceBeeGaming](https://github.com/SpaceBeeGaming) - SpaceBeeGaming ![1 pull requests.](https://img.shields.io/badge/Merged%20Pull%20Requests-1-green)

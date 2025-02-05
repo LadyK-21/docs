@@ -1,8 +1,8 @@
 ---
-title: String interpolation in C#
+title: String interpolation
 description: Learn how to include formatted expression results in a result string in C# with string interpolation.
 author: pkulikov
-ms.technology: csharp-fundamentals
+ms.subservice: fundamentals
 ms.date: 08/28/2023
 ---
 # String interpolation in C\#

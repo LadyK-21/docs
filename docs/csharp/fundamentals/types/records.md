@@ -1,5 +1,5 @@
 ---
-title: "Records in C#"
+title: "Record types"
 description: Learn about C# record types and how to create them. A record is a class that provides value semantics.
 ms.date: 05/24/2023
 helpviewer_keywords: 
@@ -19,7 +19,7 @@ Consider using a record in place of a class or struct in the following scenarios
 
 ### Value equality
 
-For records, value equality means that two variables of a record type are equal if the types match and all property and field values match. For other reference types such as classes, equality means [reference equality](../../programming-guide/statements-expressions-operators/equality-comparisons.md#reference-equality). That is, two variables of a class type are equal if they refer to the same object. Methods and operators that determine equality of two record instances use value equality.
+For records, value equality means that two variables of a record type are equal if the types match and all property and field values compare equal. For other reference types such as classes, equality means [reference equality](../../programming-guide/statements-expressions-operators/equality-comparisons.md#reference-equality) by default, unless [value equality](../../programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type.md) was implemented. That is, two variables of a class type are equal if they refer to the same object. Methods and operators that determine equality of two record instances use value equality.
 
 Not all data models work well with value equality. For example, [Entity Framework Core](/ef/core/) depends on reference equality to ensure that it uses only one instance of an entity type for what is conceptually one entity. For this reason, record types aren't appropriate for use as entity types in Entity Framework Core.
 
@@ -47,15 +47,15 @@ The compiler synthesizes a public init-only property for each primary constructo
 
 The following example defines a public record that uses positional parameters to declare and instantiate a record. It then prints the type name and property values:
 
-:::code language="csharp" source="../../language-reference/builtin-types/snippets/shared/RecordType.cs" ID="InstantiatePositional":::
+:::code language="csharp" source="./snippets/records/FirstRecord.cs" id="FirstRecord":::
 
 The following example demonstrates value equality in records:
 
-:::code language="csharp" source="../../language-reference/builtin-types/snippets/shared/RecordType.cs" ID="Equality":::
+:::code language="csharp" source="./snippets/records/EqualityTest.cs" id="EqualityTest":::
 
 The following example demonstrates use of a `with` expression to copy an immutable object and change one of the properties:
 
-:::code language="csharp" source="../../language-reference/builtin-types/snippets/shared/RecordType.cs" ID="WithExpressions":::
+:::code language="csharp" source="./snippets/records/ImmutableRecord.cs" id="ImmutableRecord":::
 
 For more information, see [Records (C# reference)](../../language-reference/builtin-types/record.md).
   

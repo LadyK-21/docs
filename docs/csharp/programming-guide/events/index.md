@@ -1,5 +1,5 @@
 ---
-title: "Events - C# Programming Guide"
+title: "Events"
 description: Learn about events. Events enable a class or object to notify other classes or objects when something of interest occurs.
 ms.date: 07/20/2015
 helpviewer_keywords: 
@@ -36,7 +36,7 @@ In a typical C# Windows Forms or Web application, you subscribe to events raised
   
 - [How to subscribe to and unsubscribe from events](./how-to-subscribe-to-and-unsubscribe-from-events.md)
 
-- [How to publish events that conform to .NET Guidelines](./how-to-publish-events-that-conform-to-net-framework-guidelines.md)
+- [How to publish events that conform to .NET Guidelines](/dotnet/standard/events)
 
 - [How to raise base class events in derived classes](./how-to-raise-base-class-events-in-derived-classes.md)
 
@@ -51,6 +51,5 @@ For more information, see [Events](~/_csharpstandard/standard/classes.md#158-eve
 ## See also
 
 - <xref:System.EventHandler>
-- [C# Programming Guide](../index.md)
 - [Delegates](../delegates/index.md)
 - [Creating Event Handlers in Windows Forms](/dotnet/desktop/winforms/creating-event-handlers-in-windows-forms)

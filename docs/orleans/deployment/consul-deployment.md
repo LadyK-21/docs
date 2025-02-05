@@ -1,7 +1,7 @@
 ---
 title: Use Consul as a membership provider
 description: Learn how to use Consul as a membership provider in .NET Orleans.
-ms.date: 05/12/2023
+ms.date: 07/03/2024
 ---
 
 # Use Consul as a membership provider
@@ -10,7 +10,7 @@ ms.date: 05/12/2023
 
 There's a detailed overview of Consul including comparisons with similar solutions [here](https://www.consul.io/intro/index.html).
 
-Consul is written in [Go](https://go.dev) and is [open source](https://github.com/hashicorp/consul); compiled downloads are available for [macOS X, FreeBSD, Linux, Solaris and Windows](https://www.consul.io/downloads.html)
+Consul is written in [Go](https://go.dev) and is [open source](https://github.com/hashicorp/consul); compiled downloads are available for [macOS X, FreeBSD, Linux, Solaris, and Windows](https://www.consul.io/downloads.html).
 
 ## Why choose Consul?
 

@@ -1,7 +1,7 @@
 ---
 title: Orleans sample projects
 description: Explore the various sample projects written with .NET Orleans.
-ms.date: 12/01/2022
+ms.date: 07/03/2024
 ---
 
 # Orleans sample projects
@@ -156,7 +156,7 @@ Simulates bank accounts, using ACID transactions to transfer random amounts betw
 
 ## [Blazor Server](/samples/dotnet/samples/orleans-aspnet-core-blazor-server-sample) and [Blazor WebAssembly](/samples/dotnet/samples/orleans-aspnet-core-blazor-wasm-sample)
 
-:::image type="content" source="https://raw.githubusercontent.com/dotnet/samples/main/orleans/Blazor/BlazorServer/screenshot.jpeg" alt-text="Blazor Orleans sample app screen capture":::
+:::image type="content" source="https://raw.githubusercontent.com/dotnet/samples/main/orleans/Blazor/BlazorServer/screenshot.png" alt-text="Blazor Orleans sample app screen capture":::
 
 These two Blazor samples are based on the [Blazor introductory tutorials](https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/intro), adapted for use with Orleans.
 The [Blazor WebAssembly](https://github.com/dotnet/samples/tree/main/orleans/Blazor/BlazorWasm) sample uses the [Blazor WebAssembly hosting model](/aspnet/core/blazor/hosting-models#blazor-webassembly).

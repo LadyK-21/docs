@@ -3,7 +3,7 @@ title: Make HTTP requests with the HttpClient
 description: Learn how to make HTTP requests and handle responses with the HttpClient in .NET.
 author: IEvangelist
 ms.author: dapine
-ms.date: 05/19/2023
+ms.date: 11/02/2023
 ---
 
 # Make HTTP requests with the HttpClient class
@@ -39,7 +39,7 @@ This `HttpClient` instance uses the base address when making subsequent requests
 - Specifying the <xref:System.Net.Http.HttpClient.DefaultRequestVersion?displayProperty=nameWithType>.
 
 > [!TIP]
-> Alternatively, you can create `HttpClient` instances using a factory-pattern approach that allows you to configure any number of clients and consume them as dependency injection services. For more information, see [IHttpClientFactory with .NET](../../../core/extensions/httpclient-factory.md).
+> Alternatively, you can create `HttpClient` instances using a factory-pattern approach that allows you to configure any number of clients and consume them as dependency injection services. For more information, see [HTTP client factory with .NET](../../../core/extensions/httpclient-factory.md).
 
 ## Make an HTTP request
 
@@ -61,6 +61,19 @@ To make an HTTP request, you call any of the following APIs:
 
 > [!WARNING]
 > Making HTTP requests is considered network I/O-bound work. While there is a synchronous <xref:System.Net.Http.HttpClient.Send%2A?displayProperty=nameWithType> method, it is recommended to use the asynchronous APIs instead, unless you have good reason not to.
+
+> [!NOTE]
+> While targeting Android devices (such as with .NET MAUI development), you must add `android:usesCleartextTraffic="true"` to `<application></application>` in _AndroidManifest.xml_. This enables clear-text traffic, such as HTTP requests, which is otherwise disabled by default due to Android security policies. Consider the following example XML settings:
+>
+> ```xml
+> <?xml version="1.0" encoding="utf-8"?>
+> <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+>   <application android:usesCleartextTraffic="true"></application>
+>   <!-- omitted for brevity -->
+> </manifest>
+> ```
+>
+> For more information, see [Enable clear-text network traffic for the localhost domain](/dotnet/maui/data-cloud/local-web-services?view=net-maui-8.0#enable-clear-text-network-traffic-for-the-localhost-domain).
 
 ### HTTP content
 
@@ -375,6 +388,6 @@ For more information about configuring a proxy, see:
 
 - [HTTP support in .NET](http-overview.md)
 - [Guidelines for using HttpClient](httpclient-guidelines.md)
-- [IHttpClientFactory with .NET](../../../core/extensions/httpclient-factory.md)
+- [HTTP client factory with .NET](../../../core/extensions/httpclient-factory.md)
 - [Use HTTP/3 with HttpClient](../../../core/extensions/httpclient-http3.md)
 - [Test web APIs with the HttpRepl](/aspnet/core/web-api/http-repl)

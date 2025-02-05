@@ -20,8 +20,8 @@ dotnet restore [<ROOT>] [--configfile <FILE>] [--disable-build-servers]
     [--interactive] [--lock-file-path <LOCK_FILE_PATH>] [--locked-mode]
     [--no-cache] [--no-dependencies] [--packages <PACKAGES_DIRECTORY>]
     [-r|--runtime <RUNTIME_IDENTIFIER>] [-s|--source <SOURCE>]
-    [--use-current-runtime, --ucr [true|false]] [--use-lock-file]
-    [-v|--verbosity <LEVEL>]
+    [--tl:[auto|on|off]] [--use-current-runtime, --ucr [true|false]]
+    [--use-lock-file] [-v|--verbosity <LEVEL>]
 
 dotnet restore -h|--help
 ```
@@ -92,6 +92,8 @@ There are three specific settings that `dotnet restore` ignores:
 
 ## Options
 
+[!INCLUDE [arch](../../../includes/cli-arch.md)]
+
 [!INCLUDE [configfile](../../../includes/cli-configfile.md)]
 
 [!INCLUDE [disable-build-servers](../../../includes/cli-disable-build-servers.md)]
@@ -144,6 +146,8 @@ There are three specific settings that `dotnet restore` ignores:
 
   Specifies the URI of the NuGet package source to use during the restore operation. This setting overrides all of the sources specified in the *nuget.config* files. Multiple sources can be provided by specifying this option multiple times.
 
+[!INCLUDE [tl](../../../includes/cli-tl.md)]
+
 - **`--use-current-runtime, --ucr [true|false]`**
 
   Sets the `RuntimeIdentifier` to a platform portable `RuntimeIdentifier` based on the one of your machine. This happens implicitly with properties that require a `RuntimeIdentifier`, such as `SelfContained`, `PublishAot`, `PublishSelfContained`, `PublishSingleFile`, and `PublishReadyToRun`. If the property is set to false, that implicit resolution will no longer occur.
@@ -188,9 +192,11 @@ There are three specific settings that `dotnet restore` ignores:
 
 ## Audit for security vulnerabilities
 
-Starting in .NET 8, you can opt into NuGet security auditing for `dotnet restore`. This auditing produces a report of security vulnerabilities with the affected package name, the severity of the vulnerability, and a link to the advisory for more details.
+Starting in .NET 8, `dotnet restore` includes NuGet security auditing. This auditing produces a report of security vulnerabilities with the affected package name, the severity of the vulnerability, and a link to the advisory for more details.
 
-To opt into security auditing, set the `<NuGetAudit>` MSBuild property to `true` in your project file. Additionally, to retrieve the known vulnerability dataset, ensure that you have the NuGet.org central registry defined as one of your package sources:
+To opt out of the security auditing, set the `<NuGetAudit>` MSBuild property to `false` in your project file.
+
+To retrieve the known vulnerability dataset, ensure that you have the NuGet.org central registry defined as one of your package sources:
 
 ```xml
 <packageSources>
@@ -199,3 +205,7 @@ To opt into security auditing, set the `<NuGetAudit>` MSBuild property to `true`
 ```
 
 You can configure the level at which auditing will fail by setting the `<NuGetAuditLevel>` MSBuild property. Possible values are `low`, `moderate`, `high`, and `critical`. For example if you only want to see moderate, high, and critical advisories, you can set the property to `moderate`.
+
+Starting in .NET 9, NuGet audits both *direct* and *transitive* package references, by default. In .NET 8, only *direct* package references are audited. You can change the mode by setting the `<NuGetAuditMode>` MSBuild property to `direct` or `all`.
+
+For more information, see [Auditing package dependencies for security vulnerabilities](/nuget/concepts/auditing-packages).

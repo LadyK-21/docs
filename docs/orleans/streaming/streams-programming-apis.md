@@ -1,7 +1,7 @@
 ---
 title: Orleans streaming APIs
 description: Learn about the available streaming APIs for .NET Orleans.
-ms.date: 12/06/2022
+ms.date: 07/03/2024
 zone_pivot_groups: orleans-version
 ---
 
@@ -164,20 +164,24 @@ Below are the guidelines on how to write the subscription logic for various case
 
 **Implicit subscriptions:**
 
-For implicit subscriptions, the grain needs to subscribe to attach the processing logic. This should be done in the grain's `OnActivateAsync` method. The grain should simply execute `await stream.SubscribeAsync(OnNext ...)` in its `OnActivateAsync` method. That will cause this particular activation to attach the `OnNext` function to process that stream. The grain can optionally specify the `StreamSequenceToken` as an argument to `SubscribeAsync`, which will cause this implicit subscription to start consuming from that token. There is never a need for an implicit subscription to call `ResumeAsync`.
+For implicit subscriptions, the grain still needs to subscribe to attach the processing logic. This can be done in the consumer grain by implementing the `IStreamSubscriptionObserver` and `IAsyncObserver<T>` interfaces, allowing the grain to activate separately from subscribing. To subscribe to the stream, the grain creates a handle and calls `await handle.ResumeAsync(this)` in its `OnSubscribed(...)` method.
+
+To process messages, the `IAsyncObserver<T>.OnNextAsync(...)` method is implemented to receive stream data and a sequence token. Alternatively, the `ResumeAsync` method may take a set of delegates representing the methods of the `IAsyncObserver<T>` interface, `onNextAsync`, `onErrorAsync`, and `onCompletedAsync`.
 
 <!-- markdownlint-disable MD044 -->
 :::zone target="docs" pivot="orleans-7-0"
 <!-- markdownlint-enable MD044 -->
 
 ```csharp
-public override async Task OnActivateAsync(CancellationToken cancellationToken)
+public Task OnNextAsync(string item, StreamSequenceToken? token = null)
 {
-    var streamProvider = GetStreamProvider(PROVIDER_NAME);
-    var streamId = StreamId.Create("MyStreamNamespace", GetPrimaryKey());
-    var stream = streamProvider.GetStream<string>(streamId);
+    _logger.LogInformation($"Received an item from the stream: {item}");
+}
 
-    await stream.SubscribeAsync(OnNextAsync)
+public async Task OnSubscribed(IStreamSubscriptionHandleFactory handleFactory)
+{
+    var handle = handleFactory.Create<string>();
+    await handle.ResumeAsync(this);
 }
 ```
 
@@ -190,12 +194,12 @@ public override async Task OnActivateAsync(CancellationToken cancellationToken)
 ```csharp
 public override async Task OnActivateAsync()
 {
-    var streamProvider = GetStreamProvider(PROVIDER_NAME);
+    var streamProvider = this.GetStreamProvider(PROVIDER_NAME);
     var stream =
         streamProvider.GetStream<string>(
-            GetPrimaryKey(), "MyStreamNamespace");
+            this.GetPrimaryKey(), "MyStreamNamespace");
 
-    await stream.SubscribeAsync(OnNextAsync)
+    await stream.SubscribeAsync(OnNextAsync);
 }
 ```
 
@@ -212,16 +216,15 @@ For explicit subscriptions, a grain must call `SubscribeAsync` to subscribe to t
 ```csharp
 public async override Task OnActivateAsync(CancellationToken cancellationToken)
 {
-    var streamProvider = GetStreamProvider(PROVIDER_NAME);
-    var streamId = StreamId.Create("MyStreamNamespace", GetPrimaryKey());
+    var streamProvider = this.GetStreamProvider(PROVIDER_NAME);
+    var streamId = StreamId.Create("MyStreamNamespace", this.GetPrimaryKey());
     var stream = streamProvider.GetStream<string>(streamId);
 
     var subscriptionHandles = await stream.GetAllSubscriptionHandles();
-    if (!subscriptionHandles.IsNullOrEmpty())
+    foreach (var handle in subscriptionHandles)
     {
-        subscriptionHandles.ForEach(
-            async x => await x.ResumeAsync(OnNextAsync));
-    }
+       await handle.ResumeAsync(this);
+    } 
 }
 ```
 
@@ -233,9 +236,9 @@ public async override Task OnActivateAsync(CancellationToken cancellationToken)
 ```csharp
 public async override Task OnActivateAsync()
 {
-    var streamProvider = GetStreamProvider(PROVIDER_NAME);
+    var streamProvider = this.GetStreamProvider(PROVIDER_NAME);
     var stream =
-        streamProvider.GetStream<string>(GetPrimaryKey(), "MyStreamNamespace");
+        streamProvider.GetStream<string>(this.GetPrimaryKey(), "MyStreamNamespace");
 
     var subscriptionHandles = await stream.GetAllSubscriptionHandles();
     if (!subscriptionHandles.IsNullOrEmpty())

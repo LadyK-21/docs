@@ -148,11 +148,10 @@ For more information, see the following sections of the [C# language specificati
 - [The is operator](~/_csharpstandard/standard/expressions.md#121212-the-is-operator)
 - [The as operator](~/_csharpstandard/standard/expressions.md#121213-the-as-operator)
 - [Cast expressions](~/_csharpstandard/standard/expressions.md#1297-cast-expressions)
-- [The typeof operator](~/_csharpstandard/standard/expressions.md#12817-the-typeof-operator)
+- [The typeof operator](~/_csharpstandard/standard/expressions.md#12818-the-typeof-operator)
 
 ## See also
 
-- [C# reference](../index.md)
 - [C# operators and expressions](index.md)
 - [How to safely cast by using pattern matching and the is and as operators](../../fundamentals/tutorials/safely-cast-using-pattern-matching-is-and-as-operators.md)
 - [Generics in .NET](../../../standard/generics/index.md)

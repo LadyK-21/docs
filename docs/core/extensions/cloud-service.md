@@ -3,7 +3,7 @@ title: Deploy a Worker Service to Azure
 description: Deploy your .NET Worker Service to Azure with ease, learning from a step-by-step process to optimize your workflow, including Docker and Azure Container Registry.
 author: IEvangelist
 ms.author: dapine
-ms.date: 08/18/2023
+ms.date: 12/13/2023
 ms.topic: tutorial
 zone_pivot_groups: development-environment-one
 ---
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 - Docker Desktop ([Windows](https://docs.docker.com/docker-for-windows/install) or [Mac](https://docs.docker.com/docker-for-mac/install)).
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - Depending on your developer environment of choice:
-  - [Visual Studio, Visual Studio Code, or Visual Studio for Mac](https://visualstudio.microsoft.com).
+  - [Visual Studio or Visual Studio Code](https://visualstudio.microsoft.com).
   - [.NET CLI](../tools/index.md)
   - [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -66,14 +66,14 @@ With the CLI, the *Dockerfile* is **not** created for you. Copy its contents int
 
 :::zone-end
 
-:::code language="dockerfile" source="snippets/workers/7.0/cloud-service/Dockerfile":::
+:::code language="dockerfile" source="snippets/workers/cloud-service/Dockerfile":::
 
 :::zone target="docs" pivot="cli"
 
 > [!NOTE]
 > You need to update the various lines in the *Dockerfile* that reference *App.CloudService—replace this with the name of your project.
 
-For more information on the official .NET images, see [Docker Hub: .NET Runtime](https://hub.docker.com/_/microsoft-dotnet-runtime?tab=description) and [Docker Hub: .NET SDK](https://hub.docker.com/_/microsoft-dotnet-sdk?tab=description).
+For more information on the official .NET images, see [Docker Hub: .NET Runtime](https://hub.docker.com/_/microsoft-dotnet-runtime) and [Docker Hub: .NET SDK](https://hub.docker.com/_/microsoft-dotnet-sdk).
 
 :::zone-end
 
