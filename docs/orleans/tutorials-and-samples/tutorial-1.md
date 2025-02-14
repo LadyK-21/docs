@@ -1,7 +1,7 @@
 ---
 title: Minimal Orleans app sample project
 description: Explore the minimal Orleans app sample project.
-ms.date: 06/06/2023
+ms.date: 07/03/2024
 ---
 
 # Tutorial: Create a minimal Orleans application
@@ -83,7 +83,7 @@ The preceding code:
 
 ### Create the client
 
-Finally, you need to configure a client for communicating with the grains, connect it to the cluster (with a single silo in it), and invoke the grain. The clustering configuration must match the one you used for the silo. For more information, see [Clusters and Clients](../host/client.md)
+Finally, you need to configure a client for communicating with the grains, connect it to the cluster (with a single silo in it), and invoke the grain. The clustering configuration must match the one you used for the silo. For more information, see [Clusters and Clients](../host/client.md).
 
 :::code source="snippets/minimal/Client/Program.cs":::
 

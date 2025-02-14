@@ -3,7 +3,7 @@ title: Testing in .NET
 description: This article gives a brief overview of testing concepts, terminology, and tools for testing in .NET.
 author: IEvangelist
 ms.author: dapine
-ms.date: 03/22/2023
+ms.date: 12/15/2023
 ms.custom: devdivchpfy22
 ---
 
@@ -39,7 +39,7 @@ Keep in mind there are [best practices](unit-testing-best-practices.md) for writ
 
 ### xUnit
 
-[xUnit](https://xunit.net) is a free, open-source, community-focused unit testing tool for .NET. The original inventor of NUnit v2 wrote xUnit.net. xUnit.net is the latest technology for unit testing .NET apps. It also works with ReSharper, CodeRush, TestDriven.NET, and [Xamarin](https://dotnet.microsoft.com/apps/xamarin). xUnit.net is a project of the [.NET Foundation](https://dotnetfoundation.org) and operates under its code of conduct.
+[xUnit](https://xunit.net) is a free, open-source, community-focused unit testing tool for .NET. The original inventor of NUnit v2 wrote xUnit.net. xUnit.net is the latest technology for unit testing .NET apps. It also works with ReSharper, CodeRush, and TestDriven.NET. xUnit.net is a project of the [.NET Foundation](https://dotnetfoundation.org) and operates under its code of conduct.
 
 For more information, see the following resources:
 
@@ -65,13 +65,17 @@ For more information, see the following resources:
 - [Unit testing with F#](unit-testing-fsharp-with-mstest.md)
 - [Unit testing with Visual Basic](unit-testing-visual-basic-with-mstest.md)
 
+#### MSTest runner
+
+The MSTest runner is a lightweight and portable alternative to [VSTest](https://github.com/microsoft/vstest) for running tests in continuous integration (CI) pipelines, and in Visual Studio Test Explorer. For more information, see [MSTest runner overview](unit-testing-mstest-runner-intro.md).
+
 ### .NET CLI
 
 You can run a solutions unit test from the [.NET CLI](../tools/index.md) with the [dotnet test](../tools/dotnet-test.md) command. The .NET CLI exposes most of the functionality that [Integrated Development Environments (IDEs)](#ide) make available through user interfaces. The .NET CLI is cross-platform and available to use as part of continuous integration and delivery pipelines. The .NET CLI is used with scripted processes to automate common tasks.
 
 ### IDE
 
-Whether you're using Visual Studio, Visual Studio for Mac, or Visual Studio Code, there are graphical user interfaces for testing functionality. There are more features available to IDEs than the CLI, for example, [Live Unit Testing](/visualstudio/test/live-unit-testing). For more information, see [Including and excluding tests with Visual Studio](/visualstudio/test/live-unit-testing#include-and-exclude-test-projects-and-test-methods).
+Whether you're using Visual Studio or Visual Studio Code, there are graphical user interfaces for testing functionality. There are more features available to IDEs than the CLI, for example, [Live Unit Testing](/visualstudio/test/live-unit-testing). For more information, see [Including and excluding tests with Visual Studio](/visualstudio/test/live-unit-testing#include-and-exclude-test-projects-and-test-methods).
 
 ## See also
 

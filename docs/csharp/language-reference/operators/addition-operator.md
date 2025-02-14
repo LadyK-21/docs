@@ -1,7 +1,7 @@
 ---
 title: "Addition operators - + and +="
 description: "The C# addition operators (`+`, and `+=`) work with operands of numeric, string, or delegate types."
-ms.date: 11/29/2022
+ms.date: 11/22/2024
 f1_keywords: 
   - "+_CSharpKeyword"
   - "+=_CSharpKeyword"
@@ -30,7 +30,7 @@ When one or both operands are of type [string](../builtin-types/reference-types.
 
 [!code-csharp-interactive[string interpolation](snippets/shared/AdditionOperator.cs#UseStringInterpolation)]
 
-Beginning with C# 10, you can use string interpolation to initialize a constant string when all the expressions used for placeholders are also constant strings.
+You can use string interpolation to initialize a constant string when all the expressions used for placeholders are also constant strings.
 
 Beginning with C# 11, the `+` operator performs string concatenation for UTF-8 literal strings. This operator concatenates two `ReadOnlySpan<byte>` objects.
 
@@ -52,13 +52,13 @@ An expression using the `+=` operator, such as
 x += y
 ```
 
-is equivalent to
+Is equivalent to:
 
 ```csharp
 x = x + y
 ```
 
-except that `x` is only evaluated once.
+Except that `x` is only evaluated once.
 
 The following example demonstrates the usage of the `+=` operator:
 
@@ -76,7 +76,6 @@ For more information, see the [Unary plus operator](~/_csharpstandard/standard/e
 
 ## See also
 
-- [C# reference](../index.md)
 - [C# operators and expressions](index.md)
 - [How to concatenate multiple strings](../../how-to/concatenate-multiple-strings.md)
 - [Events](../../programming-guide/events/index.md)

@@ -1,7 +1,7 @@
 ---
 title: Observers
 description: Learn about observers in .NET Orleans.
-ms.date: 03/16/2022
+ms.date: 07/03/2024
 ---
 
 # Observers
@@ -29,7 +29,6 @@ public interface IChat : IGrainObserver
 {
     Task ReceiveMessage(string message);
 }
-
 ```
 
 The only special thing is that the interface should inherit from `IGrainObserver`.

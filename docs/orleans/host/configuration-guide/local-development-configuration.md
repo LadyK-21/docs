@@ -1,7 +1,7 @@
 ---
 title: Local development configuration
 description: Learn how to configure .NET Orleans for local development.
-ms.date: 05/08/2023
+ms.date: 07/03/2024
 zone_pivot_groups: orleans-version
 ---
 
@@ -26,7 +26,7 @@ using Microsoft.Extensions.Hosting;
 await Host.CreateDefaultBuilder(args)
     .UseOrleans(siloBuilder =>
     {
-        siloBuilder.UseLocalhostClustering();;
+        siloBuilder.UseLocalhostClustering();
     })
     .RunConsoleAsync();
 ```

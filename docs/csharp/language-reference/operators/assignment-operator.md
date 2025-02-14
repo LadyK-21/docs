@@ -1,7 +1,7 @@
 ---
 title: "Assignment operators - assign an expression to a variable"
-description: "C# assignment operators assign an expression to a variable. Assignment sets the value of the expression. `ref` assignment sets the reference of a `ref` variable."
-ms.date: 11/29/2022
+description: "C# Assignment sets the value of the expression. Alternatively, `ref` assignment sets the reference of a reference variable."
+ms.date: 11/21/2024
 f1_keywords:
   - "=_CSharpKeyword"
 helpviewer_keywords:
@@ -18,7 +18,7 @@ The assignment operator `=` is right-associative, that is, an expression of the 
 a = b = c
 ```
 
-is evaluated as
+Is evaluated as
 
 ```csharp
 a = (b = c)
@@ -30,7 +30,7 @@ The following example demonstrates the usage of the assignment operator with a l
 
 The left-hand operand of an assignment receives the *value* of the right-hand operand. When the operands are of [value types](../builtin-types/value-types.md), assignment copies the contents of the right-hand operand. When the operands are of [reference types](../builtin-types/reference-types.md), assignment copies the reference to the object.
 
-This is called *value assignment*: the value is assigned.
+This operation is called *value assignment*: the value is assigned.
 
 ## ref assignment
 
@@ -40,7 +40,15 @@ This is called *value assignment*: the value is assigned.
 
 In the preceding example, the [local reference variable](../statements/declarations.md#reference-variables) `arrayElement` is initialized as an alias to the first array element. Then, it's `ref` reassigned to refer to the last array element. As it's an alias, when you update its value with an ordinary assignment operator `=`, the corresponding array element is also updated.
 
-The left-hand operand of `ref` assignment can be a [local reference variable](../statements/declarations.md#reference-variables), a [`ref` field](../builtin-types/ref-struct.md#ref-fields), and a [`ref`](../keywords/ref.md), [`out`](../keywords/out-parameter-modifier.md), or [`in`](../keywords/in-parameter-modifier.md) method parameter. Both operands must be of the same type.
+The left-hand operand of `ref` assignment can be a [local reference variable](../statements/declarations.md#reference-variables), a [`ref` field](../builtin-types/ref-struct.md#ref-fields), and a [`ref`](../keywords/ref.md), [`out`](../keywords/method-parameters.md#out-parameter-modifier), or [`in`](../keywords/method-parameters.md#in-parameter-modifier) method parameter. Both operands must be of the same type.
+
+A `ref` assignment means that a reference variable has a different referrent. It's no longer referring to its previous referrent. Using `ref =` on a `ref` parameter means the parameter no longer refers to its argument. Any actions that modify the state of the object after ref reassigning it make those modifications to the new item. For example, consider the following method:
+
+:::code language="csharp" source="snippets/shared/AssignmentOperator.cs" id="SnippetRefReassignAndModify":::
+
+The following usage shows that the assignment to the parameter `s` isn't visible after the method call because `s` was `ref` reassigned to refer to `sLocal` before the string was modified:
+
+:::code language="csharp" source="snippets/shared/AssignmentOperator.cs" id="Usage":::
 
 ## Compound assignment
 
@@ -50,15 +58,15 @@ For a binary operator `op`, a compound assignment expression of the form
 x op= y
 ```
 
-is equivalent to
+Is equivalent to
 
 ```csharp
 x = x op y
 ```
 
-except that `x` is only evaluated once.
+Except that `x` is only evaluated once.
 
-Compound assignment is supported by [arithmetic](arithmetic-operators.md#compound-assignment), [Boolean logical](boolean-logical-operators.md#compound-assignment), and [bitwise logical and shift](bitwise-and-shift-operators.md#compound-assignment) operators.
+The [arithmetic](arithmetic-operators.md#compound-assignment), [Boolean logical](boolean-logical-operators.md#compound-assignment), and [bitwise logical and shift](bitwise-and-shift-operators.md#compound-assignment) operators all support compount assignment.
 
 ## Null-coalescing assignment
 
@@ -76,7 +84,6 @@ For more information, see the [Assignment operators](~/_csharpstandard/standard/
 
 ## See also
 
-- [C# reference](../index.md)
 - [C# operators and expressions](index.md)
 - [ref keyword](../keywords/ref.md)
 - [Use compound assignment (style rules IDE0054 and IDE0074)](../../../fundamentals/code-analysis/style-rules/ide0054-ide0074.md)
